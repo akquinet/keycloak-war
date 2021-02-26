@@ -20,7 +20,7 @@ import org.keycloak.util.JsonSerialization;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-@Singleton // Very important! Multiple creation causes confusing havoc during deployment
+//@Singleton // Needed, if beans.xml is present
 public class KeyCloakWARApplication extends KeycloakApplication
 {
   private static final Logger LOG = LoggerFactory.getLogger(KeyCloakWARApplication.class);

@@ -3,6 +3,7 @@ package org.keycloak.web;
 import java.io.InputStream;
 import java.util.NoSuchElementException;
 
+import javax.inject.Singleton;
 import javax.transaction.SystemException;
 import javax.transaction.Transaction;
 
@@ -19,6 +20,7 @@ import org.keycloak.util.JsonSerialization;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+@Singleton // Very important! Multiple creation causes confusing havoc during deployment
 public class KeyCloakWARApplication extends KeycloakApplication
 {
   private static final Logger LOG = LoggerFactory.getLogger(KeyCloakWARApplication.class);
@@ -26,15 +28,20 @@ public class KeyCloakWARApplication extends KeycloakApplication
   @Override
   protected ExportImportManager migrateAndBootstrap()
   {
+    //    createMyRealm();
+    return super.migrateAndBootstrap();
+  }
+
+  private void createMyRealm()
+  {
     final KeycloakSession session = sessionFactory.create();
-    final ExportImportManager exportImportManager = new ExportImportManager(session);
 
     try
     {
       session.getTransactionManager().begin();
       final ApplianceBootstrap applianceBootstrap = new ApplianceBootstrap(session);
       final RealmManager manager = new RealmManager(session);
-//      lookupTransaction();
+      //      lookupTransaction();
 
       applianceBootstrap.createMasterRealmUser("bael-admin", "pass");
       final InputStream stream = KeyCloakWARApplication.class.getResourceAsStream("baeldung-realm.json");
@@ -51,8 +58,6 @@ public class KeyCloakWARApplication extends KeycloakApplication
     {
       session.close();
     }
-
-    return exportImportManager;
   }
 
   private void lookupTransaction()

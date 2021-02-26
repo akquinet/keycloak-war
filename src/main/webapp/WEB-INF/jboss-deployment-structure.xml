@@ -19,6 +19,10 @@
         <dependencies>
             <module name="com.h2database.h2"/>
             <module name="io.netty"/>
+            <module name="org.apache.httpcomponents.core"/>
+            <module name="org.jboss.resteasy.resteasy-jaxrs"/>
+            <module name="org.jboss.resteasy.resteasy-jaxb-provider"/>
+            <module name="org.jboss.resteasy.resteasy-multipart-provider"/>
         </dependencies>
     </deployment>
 </jboss-deployment-structure>

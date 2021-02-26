@@ -27,7 +27,18 @@
                     <groupId>io.netty</groupId>
                     <artifactId>*</artifactId>
                 </exclusion>
+                <exclusion>
+                    <groupId>org.jboss.resteasy</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
             </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.enterprise</groupId>
+            <artifactId>cdi-api</artifactId>
+            <version>2.0</version>
+            <scope>provided</scope>
         </dependency>
 
         <dependency>
@@ -36,7 +47,6 @@
             <version>${keycloak.version}</version>
         </dependency>
     </dependencies>
-
 
     <build>
         <finalName>keycloak</finalName>

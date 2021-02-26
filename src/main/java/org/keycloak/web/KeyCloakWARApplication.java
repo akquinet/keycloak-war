@@ -14,16 +14,27 @@ import org.keycloak.representations.idm.RealmRepresentation;
 import org.keycloak.services.managers.ApplianceBootstrap;
 import org.keycloak.services.managers.RealmManager;
 import org.keycloak.services.resources.KeycloakApplication;
+import org.keycloak.services.resources.PublicRealmResource;
+import org.keycloak.services.resources.RealmsResource;
+import org.keycloak.services.resources.WelcomeResource;
+import org.keycloak.services.resources.admin.AdminRoot;
 import org.keycloak.services.util.JsonConfigProviderFactory;
 import org.keycloak.transaction.JtaTransactionManagerLookup;
 import org.keycloak.util.JsonSerialization;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-//@Singleton // Needed, if beans.xml is present
+@Singleton // Needed, if beans.xml is present in de
 public class KeyCloakWARApplication extends KeycloakApplication
 {
   private static final Logger LOG = LoggerFactory.getLogger(KeyCloakWARApplication.class);
+
+  public KeyCloakWARApplication()
+  {
+    classes.add(WelcomeResource.class);
+    classes.add(RealmsResource.class);
+    classes.add(AdminRoot.class);
+  }
 
   @Override
   protected ExportImportManager migrateAndBootstrap()

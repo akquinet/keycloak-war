@@ -24,7 +24,7 @@ import org.keycloak.util.JsonSerialization;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-@Singleton // Needed, if beans.xml is present in de
+@Singleton // Needed, if beans.xml is present in deployment
 public class KeyCloakWARApplication extends KeycloakApplication
 {
   private static final Logger LOG = LoggerFactory.getLogger(KeyCloakWARApplication.class);

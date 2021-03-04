@@ -1,0 +1,6 @@
+/system-property=keycloak.migration.action:remove()
+/system-property=keycloak.migration.provider:remove()
+/system-property=keycloak.migration.file:remove()
+/system-property=keycloak.migration.realmName:remove()
+/system-property=keycloak.migration.usersExportStrategy:remove()
+

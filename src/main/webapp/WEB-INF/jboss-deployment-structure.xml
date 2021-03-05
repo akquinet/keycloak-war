@@ -23,6 +23,7 @@
             <module name="org.hibernate"/>
             <module name="org.bouncycastle"/>
             <module name="com.google.guava"/>
+            <module name="org.jgroups"/>
             <module name="org.wildfly.security.elytron"/>
 
             <module name="com.fasterxml.jackson.core.jackson-core"/>

@@ -42,6 +42,11 @@
                 </exclusion>
 
                 <exclusion>
+                    <groupId>org.jgroups</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+
+                <exclusion>
                     <groupId>com.google.guava</groupId>
                     <artifactId>*</artifactId>
                 </exclusion>

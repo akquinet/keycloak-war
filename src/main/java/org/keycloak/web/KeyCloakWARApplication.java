@@ -22,7 +22,10 @@ import org.slf4j.LoggerFactory;
 @Singleton // Needed, if beans.xml is present in deployment
 public class KeyCloakWARApplication extends KeycloakApplication
 {
+  private static final Logger LOG = LoggerFactory.getLogger(KeyCloakWARApplication.class);
   public static final String USER_JSON = "keycloak-add-user.json";
+  public static final String REALM_JSON = "keycloak-add-realm.json";
+  public static final String CONFIG_DIR = System.getProperty("jboss.server.config.dir", ".");
 
   public KeyCloakWARApplication()
   {
@@ -36,7 +39,15 @@ public class KeyCloakWARApplication extends KeycloakApplication
   {
     try
     {
-      copyAddUserFile();
+      copyFileToConfigDirectory(USER_JSON);
+
+      final String realmFile = copyFileToConfigDirectory(REALM_JSON);
+
+      // See importRealms()
+      if (realmFile != null)
+      {
+        System.setProperty("keycloak.import", realmFile);
+      }
     }
     catch (final Exception exception)
     {
@@ -56,20 +67,31 @@ public class KeyCloakWARApplication extends KeycloakApplication
     Config.init(factory.create().orElseThrow(() -> new NoSuchElementException("No value present")));
   }
 
-  private void copyAddUserFile() throws Exception
+  /**
+   * Every import/add method shows a different behaviour:
+   * <p>
+   * - keycloak-server.json, e.g. may be located in META-INF/
+   * - keycloak-add-user.json, MUST be located in ${jboss.server.config.dir}
+   * - Import of realm may be located anywhere, but has to mentioned in System property "keycloak.import"
+   * <p>
+   * Thus we have to copy the data from META-INF/ in the WAR to the expected location
+   */
+  private String copyFileToConfigDirectory(final String fileName) throws Exception
   {
-    // importUser() method expects file exactly here, while keycloak-server, e.g. may be located in META-INF/ as well. Sigh...
-    // Thus we have to copy the data to the expected location
-    final String configDir = System.getProperty("jboss.server.config.dir");
-    final File addUserFile = new File(configDir + File.separator + USER_JSON);
+    final File file = new File(CONFIG_DIR + File.separator + fileName);
 
-    try (final InputStream source = Thread.currentThread().getContextClassLoader().getResourceAsStream("META-INF/" + USER_JSON);
-        final OutputStream target = new FileOutputStream(addUserFile))
+    try (final InputStream source = Thread.currentThread().getContextClassLoader().getResourceAsStream("META-INF/" + fileName);
+        final OutputStream target = new FileOutputStream(file))
     {
       if (source != null)
       {
-        IOUtils.copy(source, target);
+        final int bytes = IOUtils.copy(source, target);
+
+        LOG.info("Copied " + bytes + " bytes to " + file);
+        return file.getAbsolutePath();
       }
     }
+
+    return null;
   }
 }

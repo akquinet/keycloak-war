@@ -21,6 +21,7 @@
 
             <module name="io.netty"/>
             <module name="org.hibernate"/>
+            <module name="org.bouncycastle"/>
             <module name="org.wildfly.security.elytron"/>
 
             <module name="com.fasterxml.jackson.core.jackson-core"/>

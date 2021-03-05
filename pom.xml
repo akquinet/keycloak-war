@@ -24,11 +24,13 @@
             <artifactId>keycloak-dependencies-server-all</artifactId>
             <version>${keycloak.version}</version>
             <type>pom</type>
+
             <exclusions>
                 <exclusion>
                     <groupId>io.netty</groupId>
                     <artifactId>*</artifactId>
                 </exclusion>
+
                 <exclusion>
                     <groupId>org.jboss.resteasy</groupId>
                     <artifactId>*</artifactId>
@@ -48,18 +50,6 @@
             <artifactId>keycloak-wildfly-extensions</artifactId>
             <version>${keycloak.version}</version>
         </dependency>
-
-<!--        <dependency>-->
-<!--            <groupId>org.jboss.resteasy</groupId>-->
-<!--            <artifactId>resteasy-servlet-initializer</artifactId>-->
-<!--            <version>${resteasy.version}</version>-->
-<!--            <exclusions>-->
-<!--                <exclusion>-->
-<!--                    <groupId>org.jboss.resteasy</groupId>-->
-<!--                    <artifactId>*</artifactId>-->
-<!--                </exclusion>-->
-<!--            </exclusions>-->
-<!--        </dependency>-->
 
         <dependency>
             <groupId>org.jboss.resteasy</groupId>

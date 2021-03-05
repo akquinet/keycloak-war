@@ -37,6 +37,21 @@
                 </exclusion>
 
                 <exclusion>
+                    <groupId>commons-codec</groupId>
+                    <artifactId>commons-codec</artifactId>
+                </exclusion>
+
+                <exclusion>
+                    <groupId>commons-io</groupId>
+                    <artifactId>commons-io</artifactId>
+                </exclusion>
+
+                <exclusion>
+                    <groupId>commons-lang</groupId>
+                    <artifactId>commons-lang</artifactId>
+                </exclusion>
+
+                <exclusion>
                     <groupId>org.jboss.resteasy</groupId>
                     <artifactId>*</artifactId>
                 </exclusion>

@@ -37,6 +37,11 @@
                 </exclusion>
 
                 <exclusion>
+                    <groupId>org.wildfly.security</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+
+                <exclusion>
                     <groupId>com.fasterxml.jackson.core</groupId>
                     <artifactId>*</artifactId>
                 </exclusion>

@@ -42,6 +42,11 @@
                 </exclusion>
 
                 <exclusion>
+                    <groupId>com.google.guava</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+
+                <exclusion>
                     <groupId>org.wildfly.security</groupId>
                     <artifactId>*</artifactId>
                 </exclusion>

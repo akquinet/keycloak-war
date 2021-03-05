@@ -18,12 +18,21 @@
     <deployment>
         <dependencies>
             <module name="com.h2database.h2"/>
+
             <module name="io.netty"/>
             <module name="org.hibernate"/>
+
+            <module name="com.fasterxml.jackson.core.jackson-core"/>
+            <module name="com.fasterxml.jackson.core.jackson-databind"/>
+            <module name="com.fasterxml.jackson.core.jackson-annotations"/>
+            <module name="com.fasterxml.jackson.datatype.jackson-datatype-jdk8"/>
+
             <module name="org.apache.commons.codec"/>
             <module name="org.apache.commons.io"/>
             <module name="org.apache.commons.lang"/>
+
             <module name="org.apache.httpcomponents.core"/>
+
             <module name="org.jboss.resteasy.resteasy-jaxrs"/>
             <module name="org.jboss.resteasy.resteasy-jaxb-provider"/>
             <module name="org.jboss.resteasy.resteasy-multipart-provider"/>

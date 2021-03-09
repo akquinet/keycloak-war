@@ -13,7 +13,7 @@
 
         <init-param>
             <param-name>javax.ws.rs.Application</param-name>
-            <param-value>org.keycloak.web.KeyCloakWARApplication</param-value>
+            <param-value>de.akquinet.ccsp.keycloak.web.KeyCloakWARApplication</param-value>
         </init-param>
 
         <init-param>

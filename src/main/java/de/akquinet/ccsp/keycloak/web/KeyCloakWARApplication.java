@@ -1,4 +1,4 @@
-package org.keycloak.web;
+package de.akquinet.ccsp.keycloak.web;
 
 import java.io.File;
 import java.io.FileOutputStream;

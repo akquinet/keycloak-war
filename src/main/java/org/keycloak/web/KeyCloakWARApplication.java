@@ -23,6 +23,7 @@ import org.slf4j.LoggerFactory;
 public class KeyCloakWARApplication extends KeycloakApplication
 {
   private static final Logger LOG = LoggerFactory.getLogger(KeyCloakWARApplication.class);
+
   public static final String USER_JSON = "keycloak-add-user.json";
   public static final String REALM_JSON = "keycloak-add-realm.json";
   public static final String CONFIG_DIR = System.getProperty("jboss.server.config.dir", ".");
@@ -74,9 +75,12 @@ public class KeyCloakWARApplication extends KeycloakApplication
    * - keycloak-add-user.json, MUST be located in ${jboss.server.config.dir}
    * - Import of realm may be located anywhere, but has to mentioned in System property "keycloak.import"
    * <p>
-   * Thus we have to copy the data from META-INF/ in the WAR to the expected location
+   * Thus we have to copy the data from META-INF/ in the WAR to the expected location.
+   *
+   * @param fileName Name of the (JSON) file in config directory and META-INF, respectively
+   * @return path to the copied file
    */
-  private String copyFileToConfigDirectory(final String fileName) throws Exception
+  protected String copyFileToConfigDirectory(final String fileName) throws Exception
   {
     final File file = new File(CONFIG_DIR + File.separator + fileName);
 

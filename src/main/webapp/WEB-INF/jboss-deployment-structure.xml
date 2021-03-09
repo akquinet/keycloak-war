@@ -3,6 +3,8 @@
         <dependencies>
             <module name="com.h2database.h2"/>
 
+            <module name="com.sun.xml.messaging.saaj"/>
+            <module name="com.github.ben-manes.caffeine"/>
             <module name="io.netty"/>
             <module name="org.hibernate"/>
             <module name="org.bouncycastle"/>

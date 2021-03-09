@@ -32,6 +32,16 @@
                 </exclusion>
 
                 <exclusion>
+                    <groupId>com.github.ben-manes.caffeine</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+
+                <exclusion>
+                    <groupId>com.sun.xml.messaging.saaj</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+
+                <exclusion>
                     <groupId>org.apache.logging.log4j</groupId>
                     <artifactId>*</artifactId>
                 </exclusion>

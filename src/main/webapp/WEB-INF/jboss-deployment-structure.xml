@@ -10,6 +10,7 @@
             <module name="com.google.code.gson"/>
             <module name="org.glassfish.jakarta.json"/>
             <module name="org.jgroups"/>
+            <module name="org.apache.log4j"/>
             <module name="org.jboss.threads"/>
             <module name="org.jboss.modules"/>
             <module name="org.jboss.marshalling"/>

@@ -10,9 +10,9 @@ Then point your browser to
 
 and login as admin.
 
-## Admin-User
+## Users
 
-Kept in file META-INF/keycloak-add-user.json which is copied at startup of the WAR to ${jboss.server.config.dir}/
+Admin user is kept in file META-INF/keycloak-add-user.json which is copied at startup of the WAR to ${jboss.server.config.dir}/
 
 Username: admin
 Password: RcSTU63zAMkpUqhGGuSCmU9wIbXuDSpv+

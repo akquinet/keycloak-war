@@ -37,6 +37,11 @@
                 </exclusion>
 
                 <exclusion>
+                    <groupId>org.glassfish</groupId>
+                    <artifactId>jakarta.json</artifactId>
+                </exclusion>
+
+                <exclusion>
                     <groupId>org.bouncycastle</groupId>
                     <artifactId>*</artifactId>
                 </exclusion>
@@ -62,7 +67,17 @@
                 </exclusion>
 
                 <exclusion>
+                    <groupId>org.jboss.threads</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+
+                <exclusion>
                     <groupId>com.google.guava</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+
+                <exclusion>
+                    <groupId>com.google.code.gson</groupId>
                     <artifactId>*</artifactId>
                 </exclusion>
 
